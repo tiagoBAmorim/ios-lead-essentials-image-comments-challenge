@@ -6,7 +6,6 @@ import XCTest
 import EssentialFeed
 
 class CacheFeedUseCaseTests: XCTestCase {
-	
 	func test_init_doesNotMessageStoreUponCreation() {
 		let (_, store) = makeSUT()
 		
@@ -121,5 +120,4 @@ class CacheFeedUseCaseTests: XCTestCase {
 		
 		XCTAssertEqual(receivedError as NSError?, expectedError, file: file, line: line)
 	}
-	
 }

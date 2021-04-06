@@ -6,7 +6,6 @@ import XCTest
 import EssentialFeed
 
 class LoadFeedFromRemoteUseCaseTests: XCTestCase {
-	
 	func test_init_doesNotRequestDataFromURL() {
 		let (_, client) = makeSUT()
 		
@@ -161,5 +160,4 @@ class LoadFeedFromRemoteUseCaseTests: XCTestCase {
 		
 		wait(for: [exp], timeout: 1.0)
 	}
-	
 }

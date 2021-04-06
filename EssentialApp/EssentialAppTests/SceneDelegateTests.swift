@@ -7,7 +7,6 @@ import EssentialFeediOS
 @testable import EssentialApp
 
 class SceneDelegateTests: XCTestCase {
-	
 	func test_configureWindow_setsWindowAsKeyAndVisible() {
 		let window = UIWindow()
 		let sut = SceneDelegate()
@@ -32,5 +31,4 @@ class SceneDelegateTests: XCTestCase {
 		XCTAssertNotNil(rootNavigation, "Expected a navigation controller as root, got \(String(describing: root)) instead")
 		XCTAssertTrue(topController is FeedViewController, "Expected a feed controller as top view controller, got \(String(describing: topController)) instead")
 	}
-	
 }

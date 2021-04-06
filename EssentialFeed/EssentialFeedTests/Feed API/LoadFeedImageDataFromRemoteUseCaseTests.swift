@@ -6,7 +6,6 @@ import XCTest
 import EssentialFeed
 
 class LoadFeedImageDataFromRemoteUseCaseTests: XCTestCase {
-	
 	func test_init_doesNotPerformAnyURLRequest() {
 		let (_, client) = makeSUT()
 		
@@ -148,5 +147,4 @@ class LoadFeedImageDataFromRemoteUseCaseTests: XCTestCase {
 		
 		wait(for: [exp], timeout: 1.0)
 	}
-	
 }

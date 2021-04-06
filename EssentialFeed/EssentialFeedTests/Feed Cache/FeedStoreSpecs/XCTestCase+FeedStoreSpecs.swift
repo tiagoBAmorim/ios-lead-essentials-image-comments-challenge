@@ -6,7 +6,6 @@ import XCTest
 import EssentialFeed
 
 extension FeedStoreSpecs where Self: XCTestCase {
-	
 	func assertThatRetrieveDeliversEmptyOnEmptyCache(on sut: FeedStore, file: StaticString = #filePath, line: UInt = #line) {
 		expect(sut, toRetrieve: .success(.none), file: file, line: line)
 	}
@@ -110,7 +109,6 @@ extension FeedStoreSpecs where Self: XCTestCase {
 		
 		XCTAssertEqual(completedOperationsInOrder, [op1, op2, op3], "Expected side-effects to run serially but operations finished in the wrong order", file: file, line: line)
 	}
-	
 }
 
 extension FeedStoreSpecs where Self: XCTestCase {
@@ -149,7 +147,7 @@ extension FeedStoreSpecs where Self: XCTestCase {
 		sut.retrieve { retrievedResult in
 			switch (expectedResult, retrievedResult) {
 			case (.success(.none), .success(.none)),
-				 (.failure, .failure):
+			     (.failure, .failure):
 				break
 				
 			case let (.success(.some(expected)), .success(.some(retrieved))):

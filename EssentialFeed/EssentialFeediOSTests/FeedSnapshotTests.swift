@@ -7,7 +7,6 @@ import EssentialFeediOS
 @testable import EssentialFeed
 
 class FeedSnapshotTests: XCTestCase {
-	
 	func test_emptyFeed() {
 		let sut = makeSUT()
 		
@@ -89,7 +88,6 @@ class FeedSnapshotTests: XCTestCase {
 			)
 		]
 	}
-	
 }
 
 private extension FeedViewController {

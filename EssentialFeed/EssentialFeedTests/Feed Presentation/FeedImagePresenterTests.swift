@@ -6,7 +6,6 @@ import XCTest
 import EssentialFeed
 
 class FeedImagePresenterTests: XCTestCase {
-	
 	func test_init_doesNotSendMessagesToView() {
 		let (_, view) = makeSUT()
 		
@@ -101,5 +100,4 @@ class FeedImagePresenterTests: XCTestCase {
 			messages.append(model)
 		}
 	}
-	
 }

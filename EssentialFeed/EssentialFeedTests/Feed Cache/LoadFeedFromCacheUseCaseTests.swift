@@ -6,7 +6,6 @@ import XCTest
 import EssentialFeed
 
 class LoadFeedFromCacheUseCaseTests: XCTestCase {
-	
 	func test_init_doesNotMessageStoreUponCreation() {
 		let (_, store) = makeSUT()
 		
@@ -169,5 +168,4 @@ class LoadFeedFromCacheUseCaseTests: XCTestCase {
 		action()
 		wait(for: [exp], timeout: 1.0)
 	}
-	
 }

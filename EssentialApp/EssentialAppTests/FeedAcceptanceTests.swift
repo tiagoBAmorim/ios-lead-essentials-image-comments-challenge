@@ -8,7 +8,6 @@ import EssentialFeediOS
 @testable import EssentialApp
 
 class FeedAcceptanceTests: XCTestCase {
-	
 	func test_onLaunch_displaysRemoteFeedWhenCustomerHasConnectivity() {
 		let feed = launch(httpClient: .online(response), store: .empty)
 		
@@ -96,5 +95,4 @@ class FeedAcceptanceTests: XCTestCase {
 			["id": UUID().uuidString, "image": "http://image.com"]
 		]])
 	}
-	
 }

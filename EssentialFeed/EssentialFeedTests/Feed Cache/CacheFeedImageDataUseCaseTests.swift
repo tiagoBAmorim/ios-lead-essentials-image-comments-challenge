@@ -6,7 +6,6 @@ import XCTest
 import EssentialFeed
 
 class CacheFeedImageDataUseCaseTests: XCTestCase {
-	
 	func test_init_doesNotMessageStoreUponCreation() {
 		let (_, store) = makeSUT()
 		
@@ -76,7 +75,7 @@ class CacheFeedImageDataUseCaseTests: XCTestCase {
 				break
 				
 			case (.failure(let receivedError as LocalFeedImageDataLoader.SaveError),
-				  .failure(let expectedError as LocalFeedImageDataLoader.SaveError)):
+			      .failure(let expectedError as LocalFeedImageDataLoader.SaveError)):
 				XCTAssertEqual(receivedError, expectedError, file: file, line: line)
 				
 			default:
@@ -89,5 +88,4 @@ class CacheFeedImageDataUseCaseTests: XCTestCase {
 		action()
 		wait(for: [exp], timeout: 1.0)
 	}
-	
 }

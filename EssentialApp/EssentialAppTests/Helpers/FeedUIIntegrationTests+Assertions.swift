@@ -7,7 +7,6 @@ import EssentialFeed
 import EssentialFeediOS
 
 extension FeedUIIntegrationTests {
-	
 	func assertThat(_ sut: FeedViewController, isRendering feed: [FeedImage], file: StaticString = #filePath, line: UInt = #line) {
 		sut.view.enforceLayoutCycle()
 		
@@ -40,5 +39,4 @@ extension FeedUIIntegrationTests {
 	private func executeRunLoopToCleanUpReferences() {
 		RunLoop.current.run(until: Date())
 	}
-	
 }

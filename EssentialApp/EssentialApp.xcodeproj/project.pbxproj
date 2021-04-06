@@ -211,6 +211,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0895DAA2234B3B980031BB2D /* Build configuration list for PBXNativeTarget "EssentialApp" */;
 			buildPhases = (
+				080759D7261CBC9700595FCA /* SwiftFormat */,
 				0895DA7F234B3B950031BB2D /* Sources */,
 				0895DA80234B3B950031BB2D /* Frameworks */,
 				0895DA81234B3B950031BB2D /* Resources */,
@@ -302,6 +303,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		080759D7261CBC9700595FCA /* SwiftFormat */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftFormat;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "cd ../BuildTools\nSDKROOT=macosx\n#swift package update #Uncomment this line temporarily to update the version used to the latest matching your BuildTools/Package.swift file\nswift run -c release swiftformat \"$SRCROOT\" --swiftversion 5 --indent tab --rules indent,linebreaks,consecutiveBlankLines,blankLinesAtEndOfScope,blankLinesAtStartOfScope,blankLinesBetweenScopes,consecutiveSpaces,duplicateImports,elseOnSameLine,emptyBraces,redundantBreak,redundantInit,redundantLetError,redundantNilInit,redundantType,redundantVoidReturnType,spaceAroundBraces,spaceAroundBrackets,spaceAroundComments,spaceAroundGenerics,spaceAroundOperators,spaceAroundParens,spaceInsideBraces,spaceInsideBrackets,spaceInsideGenerics,spaceInsideParens,void --quiet\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0895DA7F234B3B950031BB2D /* Sources */ = {

@@ -184,6 +184,8 @@ https://ile-api.essentialdeveloper.com/essential-feed/v1/image/{image-id}/commen
 
 	- Do not rename the existing classes and files.
 
+	- Important: Every time you build the project, it'll automatically reformat the modified files with SwiftFormat to maintain the code consistent.
+
 3) You can develop the platform-agnostic logic in the `EssentialFeed` target using the `macOS` platform to speed up the TDD cycle.
 
 4) Feel free to organize the 'Image Comments' feature in any way you want in the project. You can use the existing projects and targets, or create new ones if you want to.
