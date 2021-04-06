@@ -29,6 +29,8 @@ You'll develop the API, Presentation, and UI layers for this feature.
 
 4) At all times, the user should have a back button to return to the feed screen.
 	- Cancel any running comments API requests when the user navigates back.
+		- Important: Only cancel when the scene has been deallocated.
+		- **Don't** cancel the request on `viewWillDisappear`/`viewDidDisappear` because it doesn't mean the view has been deallocated (the view may appear again!).
 
 5) The comments screen layout should match the UI specs.
 	- Present the comment date using relative date formatting, e.g., "1 day ago."
@@ -37,7 +39,7 @@ You'll develop the API, Presentation, and UI layers for this feature.
 
 7) The comments screen should support:
 	- Light and Dark Mode
-	- Dynamic Fonts
+	- Dynamic Type (Scalable font sizes based on the user preference)
 
 8) Write tests to validate your implementation, including unit, integration, and snapshot tests (aim to write the test first!).
 
@@ -49,7 +51,9 @@ You'll develop the API, Presentation, and UI layers for this feature.
 
 Follow the UI specs for loading, error, and success states:
 
-![Image Comments UI](image-comments-ui-spec.png)
+![Image Comments UI](image-comments-ui.png)
+
+![Image Comments UI](image-comments-ui-specs.png)
 
 ---
 
@@ -123,7 +127,7 @@ Given the customer doesn't have connectivity
 ```
 GET /image/{image-id}/comments
 
-2xx RESPONSE
+2xx RESPONSE (**Important**: any 2xx response is valid - not only 200!)
 
 {
 	"items": [
