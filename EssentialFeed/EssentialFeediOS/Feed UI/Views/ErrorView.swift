@@ -23,7 +23,8 @@ public final class ErrorView: UIView {
 		button.titleLabel?.textColor = .white
 		button.titleLabel?.textAlignment = .center
 		button.titleLabel?.numberOfLines = 0
-
+		button.titleLabel?.adjustsFontForContentSizeCategory = true
+		
 		hideMessage()
 	}
 	
