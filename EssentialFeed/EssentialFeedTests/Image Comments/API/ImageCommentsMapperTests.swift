@@ -12,7 +12,7 @@ class ImageCommentsMapperTests: XCTestCase {
 
 		try samples.forEach { code in
 			XCTAssertThrowsError(
-				try FeedItemsMapper.map(json, from: HTTPURLResponse(statusCode: code))
+				try ImageCommentsMapper.map(json, from: HTTPURLResponse(statusCode: code))
 			)
 		}
 	}
