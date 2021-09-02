@@ -53,7 +53,7 @@ class ImageCommentsMapperTests: XCTestCase {
 
 		let result = try ImageCommentsMapper.map(json, from: HTTPURLResponse(statusCode: 200))
 
-        XCTAssertEqual(result, [item1.model, item2.model])
+		XCTAssertEqual(result, [item1.model, item2.model])
 	}
 
 	// MARK: - Helpers
