@@ -7,10 +7,10 @@ import Foundation
 public final class ImageCommentsPresenter {
 	public static var title: String {
 		NSLocalizedString(
-			"FEED_VIEW_TITLE",
-			tableName: "Feed",
+			"IMAGE_COMMENTS_VIEW_TITLE",
+			tableName: "ImageComments",
 			bundle: Bundle(for: ImageCommentsPresenter.self),
-			comment: "Title for the feed view")
+			comment: "Title for the comments view")
 	}
 
 	public static func map(_ feed: [FeedImage]) -> FeedViewModel {
