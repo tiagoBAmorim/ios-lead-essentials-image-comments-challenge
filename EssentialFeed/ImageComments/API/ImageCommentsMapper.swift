@@ -19,7 +19,7 @@ public final class ImageCommentsMapper {
 			let username: String
 		}
 
-		var images: [ImageComment] {
+		var comments: [ImageComment] {
 			items.map { ImageComment(id: $0.id, message: $0.message, createdAt: $0.created_at, username: $0.author.username) }
 		}
 	}
@@ -29,10 +29,13 @@ public final class ImageCommentsMapper {
 	}
 
 	public static func map(_ data: Data, from response: HTTPURLResponse) throws -> [ImageComment] {
-		guard response.isOK, let root = try? JSONDecoder().decode(Root.self, from: data) else {
+		let decoder = JSONDecoder()
+		decoder.dateDecodingStrategy = .iso8601
+
+		guard response.isOK, let root = try? decoder.decode(Root.self, from: data) else {
 			throw Error.invalidData
 		}
 
-		return root.images
+		return root.comments
 	}
 }
