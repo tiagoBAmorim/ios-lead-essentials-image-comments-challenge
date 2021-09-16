@@ -177,7 +177,7 @@ class ImageCommentsUIIntegrationTests: XCTestCase {
 		}
 	}
 
-	private class LoaderSpy {
+	private final class LoaderSpy {
 		// MARK: - CommentsLoader
 
 		private var requests = [PassthroughSubject<[ImageComment], Error>]()
