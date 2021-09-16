@@ -29,9 +29,9 @@ class ImageCommentsMapperTests: XCTestCase {
 	func test_map_deliversNoItemsOn2xxHTTPResponseWithEmptyJSONList() throws {
 		let emptyListJSON = makeItemsJSON([])
 
-		try invalidCodes.forEach { sample in
-			XCTAssertThrowsError(try ImageCommentsMapper.map(emptyListJSON, from: HTTPURLResponse(statusCode: sample))
-			) }
+        try invalidCodes.forEach { sample in
+            XCTAssertThrowsError(try ImageCommentsMapper.map(emptyListJSON, from: HTTPURLResponse(statusCode: sample))
+            )}
 	}
 
 	func test_map_deliversItemsOn2xxHTTPResponseWithJSONItems() throws {
