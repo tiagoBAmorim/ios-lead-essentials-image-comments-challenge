@@ -17,7 +17,7 @@ class ImageCommentsUIIntegrationTests: XCTestCase {
 		XCTAssertEqual(sut.title, commentsTitle)
 	}
 
-	func test_loadCommentsActions_requestFeedFromLoader() {
+	func test_loadCommentsActions_requestCommentsFromLoader() {
 		let (sut, loader) = makeSUT()
 		XCTAssertEqual(loader.requestsCallCount, 0, "Expected no loading requests before view is loaded")
 
