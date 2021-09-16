@@ -369,7 +369,6 @@
 			isa = PBXGroup;
 			children = (
 				080EDEF321B6DA7E00813479 /* EssentialFeed */,
-				5BF929C426E0B2A30049A8EB /* ImageComments */,
 				080EDEFE21B6DA7E00813479 /* EssentialFeedTests */,
 				08D917A122B92A5D003BC31B /* EssentialFeediOS */,
 				08D917AC22B92A5D003BC31B /* EssentialFeediOSTests */,
@@ -392,6 +391,7 @@
 		080EDEF321B6DA7E00813479 /* EssentialFeed */ = {
 			isa = PBXGroup;
 			children = (
+				5BF929C426E0B2A30049A8EB /* Image Comments */,
 				080EDEF521B6DA7E00813479 /* Info.plist */,
 				08BFD128262088D600769FF0 /* Shared */,
 				08BFD13C2620892500769FF0 /* Feed */,
@@ -804,14 +804,14 @@
 			path = API;
 			sourceTree = "<group>";
 		};
-		5BF929C426E0B2A30049A8EB /* ImageComments */ = {
+		5BF929C426E0B2A30049A8EB /* Image Comments */ = {
 			isa = PBXGroup;
 			children = (
 				5BF929C526E0B2C20049A8EB /* API */,
 				5BF929C626E0B2C80049A8EB /* Domain */,
 				5BF929CB26E0BDB90049A8EB /* Presentation */,
 			);
-			path = ImageComments;
+			path = "Image Comments";
 			sourceTree = "<group>";
 		};
 		5BF929C526E0B2C20049A8EB /* API */ = {
