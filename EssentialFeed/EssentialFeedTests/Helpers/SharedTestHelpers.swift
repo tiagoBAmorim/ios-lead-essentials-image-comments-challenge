@@ -27,6 +27,8 @@ extension HTTPURLResponse {
 	}
 }
 
+var invalidCodes: [Int] { return [199, 300, 400, 500] }
+
 extension Date {
 	func adding(seconds: TimeInterval) -> Date {
 		return self + seconds

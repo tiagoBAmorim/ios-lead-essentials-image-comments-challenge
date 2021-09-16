@@ -8,9 +8,8 @@ import EssentialFeed
 class ImageCommentsMapperTests: XCTestCase {
 	func test_map_throwsErrorOnNon2xxHTTPResponse() throws {
 		let json = makeItemsJSON([])
-		let samples = [199, 300, 400, 500]
 
-		try samples.forEach { code in
+		try invalidCodes.forEach { code in
 			XCTAssertThrowsError(
 				try ImageCommentsMapper.map(json, from: HTTPURLResponse(statusCode: code))
 			)
@@ -20,16 +19,14 @@ class ImageCommentsMapperTests: XCTestCase {
 	func test_map_throwsErrorOnNon2xxHTTPResponseWithInvalidJSON() throws {
 		let invalidJSON = Data("invalid json".utf8)
 
-		let samples = [199, 300, 400, 500]
-
-		try samples.forEach { sample in
+		try invalidCodes.forEach { sample in
 			XCTAssertThrowsError(
 				try ImageCommentsMapper.map(invalidJSON, from: HTTPURLResponse(statusCode: sample))
 			)
 		}
 	}
 
-	func test_map_deliversNoItemsOn200HTTPResponseWithEmptyJSONList() throws {
+	func test_map_deliversNoItemsOn2xxHTTPResponseWithEmptyJSONList() throws {
 		let emptyListJSON = makeItemsJSON([])
 
 		let result = try ImageCommentsMapper.map(emptyListJSON, from: HTTPURLResponse(statusCode: 200))
@@ -37,7 +34,7 @@ class ImageCommentsMapperTests: XCTestCase {
 		XCTAssertEqual(result, [])
 	}
 
-	func test_map_deliversItemsOn200HTTPResponseWithJSONItems() throws {
+	func test_map_deliversItemsOn2xxHTTPResponseWithJSONItems() throws {
 		let item1 = makeItem(
 			id: UUID(),
 			message: "a message",
