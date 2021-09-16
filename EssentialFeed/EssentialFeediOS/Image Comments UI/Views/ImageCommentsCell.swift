@@ -4,7 +4,7 @@
 
 import UIKit
 
-class ImageCommentsCell: UITableViewCell {
+public class ImageCommentsCell: UITableViewCell {
 	@IBOutlet public private(set) var userNameLabel: UILabel!
 	@IBOutlet public private(set) var dateLabel: UILabel!
 	@IBOutlet public private(set) var messageLabel: UILabel!

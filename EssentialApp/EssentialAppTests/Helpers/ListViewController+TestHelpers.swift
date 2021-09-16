@@ -40,6 +40,30 @@ extension ListViewController {
 		let index = IndexPath(row: row, section: section)
 		return ds?.tableView(tableView, cellForRowAt: index)
 	}
+
+	func numberOfRenderedComments() -> Int {
+		numberOfRows(in: commentsSection)
+	}
+
+	func commentMessage(at row: Int) -> String? {
+		commentView(at: row)?.messageLabel.text
+	}
+
+	func commentDate(at row: Int) -> String? {
+		commentView(at: row)?.dateLabel.text
+	}
+
+	func commentUsername(at row: Int) -> String? {
+		commentView(at: row)?.userNameLabel.text
+	}
+
+	private func commentView(at row: Int) -> ImageCommentsCell? {
+		cell(row: row, section: commentsSection) as? ImageCommentsCell
+	}
+
+	private var commentsSection: Int {
+		return 0
+	}
 }
 
 extension ListViewController {
