@@ -171,7 +171,17 @@ class ImageCommentsUIIntegrationTests: XCTestCase {
 		return ImageComment(id: UUID(), message: message, createdAt: Date(), username: username)
 	}
 
-	private func assertThat(_ sut: ListViewController, isRendering comments: [ImageComment], file: StaticString = #filePath, line: UInt = #line) {}
+	private func assertThat(_ sut: ListViewController, isRendering comments: [ImageComment], file: StaticString = #filePath, line: UInt = #line) {
+		XCTAssertEqual(sut.numberOfRenderedComments(), comments.count, "comments count", file: file, line: line)
+
+		let viewModel = ImageCommentsPresenter.map(comments)
+
+		viewModel.comments.enumerated().forEach { index, comment in
+			XCTAssertEqual(sut.commentMessage(at: index), comment.message, "message at \(index)", file: file, line: line)
+			XCTAssertEqual(sut.commentDate(at: index), comment.date, "date at \(index)", file: file, line: line)
+			XCTAssertEqual(sut.commentUsername(at: index), comment.username, "username at \(index)", file: file, line: line)
+		}
+	}
 
 	private class LoaderSpy {
 		// MARK: - CommentsLoader
