@@ -56,21 +56,6 @@ class ImageCommentsSnapshotTests: XCTestCase {
 			),
 		]
 	}
-
-	private func feedWithFailedImageLoading() -> [ImageStub] {
-		return [
-			ImageStub(
-				description: nil,
-				location: "Cannon Street, London",
-				image: nil
-			),
-			ImageStub(
-				description: nil,
-				location: "Brighton Seafront",
-				image: nil
-			)
-		]
-	}
 }
 
 private extension ListViewController {
