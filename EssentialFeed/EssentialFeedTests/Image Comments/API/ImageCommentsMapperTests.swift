@@ -8,30 +8,36 @@ import EssentialFeed
 class ImageCommentsMapperTests: XCTestCase {
 	func test_map_throwsErrorOnNon2xxHTTPResponse() throws {
 		let json = makeItemsJSON([])
+		let samples = [199, 150, 300, 400, 500]
 
-		try invalidCodes.forEach { code in
+		try samples.forEach { code in
 			XCTAssertThrowsError(
 				try ImageCommentsMapper.map(json, from: HTTPURLResponse(statusCode: code))
 			)
 		}
 	}
 
-	func test_map_throwsErrorOnNon2xxHTTPResponseWithInvalidJSON() throws {
+	func test_map_throwsErrorOnAny2xxHTTPResponseWithInvalidJSON() throws {
 		let invalidJSON = Data("invalid json".utf8)
 
-		try invalidCodes.forEach { sample in
+		let samples = [200, 203, 280, 299]
+
+		try samples.forEach { code in
 			XCTAssertThrowsError(
-				try ImageCommentsMapper.map(invalidJSON, from: HTTPURLResponse(statusCode: sample))
+				try ImageCommentsMapper.map(invalidJSON, from: HTTPURLResponse(statusCode: code))
 			)
 		}
 	}
 
 	func test_map_deliversNoItemsOn2xxHTTPResponseWithEmptyJSONList() throws {
 		let emptyListJSON = makeItemsJSON([])
+		let samples = [200, 203, 280, 299]
 
-        try invalidCodes.forEach { sample in
-            XCTAssertThrowsError(try ImageCommentsMapper.map(emptyListJSON, from: HTTPURLResponse(statusCode: sample))
-            )}
+		try samples.forEach { code in
+			let result = try ImageCommentsMapper.map(emptyListJSON, from: HTTPURLResponse(statusCode: code))
+
+			XCTAssertEqual(result, [])
+		}
 	}
 
 	func test_map_deliversItemsOn2xxHTTPResponseWithJSONItems() throws {
@@ -41,16 +47,20 @@ class ImageCommentsMapperTests: XCTestCase {
 			createdAt: (Date(timeIntervalSince1970: 1598627222), "2020-08-28T15:07:02+00:00"),
 			username: "a username")
 
-		let item2 = makeItem(id: UUID(),
-		                     message: "another message",
-		                     createdAt: (Date(timeIntervalSince1970: 1577881882), "2020-01-01T12:31:22+00:00"),
-		                     username: "another username")
+		let item2 = makeItem(
+			id: UUID(),
+			message: "another message",
+			createdAt: (Date(timeIntervalSince1970: 1577881882), "2020-01-01T12:31:22+00:00"),
+			username: "another username")
 
 		let json = makeItemsJSON([item1.json, item2.json])
+		let samples = [200, 203, 280, 299]
 
-		let result = try ImageCommentsMapper.map(json, from: HTTPURLResponse(statusCode: 200))
+		try samples.forEach { code in
+			let result = try ImageCommentsMapper.map(json, from: HTTPURLResponse(statusCode: code))
 
-		XCTAssertEqual(result, [item1.model, item2.model])
+			XCTAssertEqual(result, [item1.model, item2.model])
+		}
 	}
 
 	// MARK: - Helpers
